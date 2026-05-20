@@ -29,48 +29,42 @@ The app answers three practical questions retailers face every week:
 ### Trend Analysis
 *Weekly actuals (LY/TY) + 52-week demand forecast + price-optimised projection*
 
-<!-- Replace with your screenshot -->
-![Trend Analysis](https://user-images.githubusercontent.com/placeholder/trend.png)
+<img width="1440" height="812" alt="Screenshot 2026-05-20 at 7 21 11 PM" src="https://github.com/user-attachments/assets/c54bde12-3613-4a93-a739-343bbaf4624b" />
 
 ---
 
 ### Demand Lab
 *Price elasticity, demand curves, and price impact simulation per SKU*
 
-<!-- Replace with your screenshot -->
-![Demand Lab](https://user-images.githubusercontent.com/placeholder/demand.png)
+<img width="1440" height="812" alt="Screenshot 2026-05-20 at 7 21 58 PM" src="https://github.com/user-attachments/assets/1f36de16-893a-4254-b352-219d3dcd396b" />
 
 ---
 
 ### Optimisation Studio — Scenario Comparison
 *Side-by-side KPI cards comparing baseline vs quantity-constrained optimisation scenarios, with Competitive Pricing Index (CPI) vs Comp A and Comp B*
 
-<!-- Replace with your screenshot -->
-![Optimisation Scenarios](https://user-images.githubusercontent.com/placeholder/opt_scenarios.png)
+<img width="1440" height="812" alt="Screenshot 2026-05-20 at 7 22 13 PM" src="https://github.com/user-attachments/assets/1595142d-0bac-4cdc-a37f-0e2b5ffdc164" />
 
 ---
 
 ### Optimisation Studio — SKU Results Table
 *Per-SKU price recommendations, elasticity, competitor prices, and optimisation lift*
 
-<!-- Replace with your screenshot -->
-![Optimisation SKU Table](https://user-images.githubusercontent.com/placeholder/opt_table.png)
+<img width="1440" height="812" alt="Screenshot 2026-05-20 at 7 22 21 PM" src="https://github.com/user-attachments/assets/3a0224d6-5d15-43f4-8782-bb803ea075e7" />
 
 ---
 
 ### Optimisation Studio — Constraint Diagram
 *Visual breakdown of binding constraints per SKU: cost floor, ±20% price change limit, competitor A/B bounds, department margin floor*
 
-<!-- Replace with your screenshot -->
-![Constraint Diagram](https://user-images.githubusercontent.com/placeholder/opt_constraints.png)
+<img width="1440" height="812" alt="Screenshot 2026-05-20 at 7 22 41 PM" src="https://github.com/user-attachments/assets/540b17cd-ae53-40bc-897a-0b41b6ddd06d" />
 
 ---
 
 ### Performance Summary
 *Annual LY / TY / NY comparison across all 30,444 SKU-stores with optimisation lift*
 
-<!-- Replace with your screenshot -->
-![Performance Summary](https://user-images.githubusercontent.com/placeholder/summary.png)
+<img width="1440" height="812" alt="Screenshot 2026-05-20 at 7 22 51 PM" src="https://github.com/user-attachments/assets/8580a286-5b91-4d35-96e8-67ff1e86cc62" />
 
 ---
 
@@ -195,4 +189,4 @@ Built on the [Walmart M5 Forecasting](https://www.kaggle.com/competitions/m5-for
 
 ---
 
-*Built by Manoj Ponnachana · [LinkedIn](https://linkedin.com/in/your-profile)*
+*Built by Manoj Ponnachana · [LinkedIn](https://linkedin.com//in/manojponnachana/)*
