@@ -1,0 +1,12 @@
+data/
+src/app/
+src/config/
+pricing_env/
+__pycache__/
+*.pyc
+.env
+*.parquet
+*.csv
+node_modules/
+dist/
+.vite/
