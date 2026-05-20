@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ink:       #0A0E1A;
+    --ink-50:    #1a2035;
+    --ink-100:   #141828;
+    --slate-750: #2a3347;
+    --slate-850: #1d2539;
+    --signal:    #00E5A0;
+    --signal-dim:#00b87f;
+    --warn:      #FF6B35;
+    --sky:       #4FC3F7;
+    --gold:      #FFD700;
+    --text-pri:  #E8EDF5;
+    --text-sec:  #8892A4;
+    --text-dim:  #505A6B;
+    --border:    rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { font-size: 14.7px; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(ellipse at 15% 15%, rgba(0,229,160,0.10) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 80%, rgba(79,195,247,0.10) 0%, transparent 45%),
+      radial-gradient(ellipse at 75% 5%,  rgba(255,107,53,0.07) 0%, transparent 35%),
+      radial-gradient(ellipse at 40% 60%, rgba(179,157,219,0.06) 0%, transparent 40%),
+      #080C17;
+    color: var(--text-pri);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.20); }
+}
+
+@layer components {
+  /* ── Card ──────────────────────────────────────────────── */
+  .card {
+    @apply rounded-xl;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.10),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+      0 8px 32px rgba(0, 0, 0, 0.40),
+      0 2px 8px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* ── KPI Card ──────────────────────────────────────────── */
+  .kpi-card {
+    @apply rounded-xl p-5;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.10),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+      0 8px 32px rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--signal), transparent);
+    opacity: 0.6;
+  }
+
+  /* ── Pill badge ─────────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-mono font-medium;
+  }
+  .badge-reliable   { background: rgba(0,229,160,0.12); color: var(--signal); }
+  .badge-marginal   { background: rgba(255,215,0,0.12);  color: var(--gold);   }
+  .badge-unreliable { background: rgba(255,107,53,0.12); color: var(--warn);   }
+  .badge-invariant  { background: rgba(80,90,107,0.25);  color: var(--text-sec);}
+
+  /* ── Button ─────────────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium
+           transition-all duration-150 cursor-pointer select-none;
+  }
+  .btn-primary {
+    @apply btn;
+    background: var(--signal);
+    color: var(--ink);
+  }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-ghost {
+    @apply btn;
+    background: rgba(255,255,255,0.04);
+    color: var(--text-sec);
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.18);
+    color: var(--text-pri);
+  }
+
+  /* ── Input ──────────────────────────────────────────────── */
+  .input {
+    @apply w-full px-3 py-2 rounded-lg text-sm outline-none transition-all;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: var(--text-pri);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .input:focus {
+    border-color: var(--signal);
+    box-shadow: 0 0 0 2px rgba(0,229,160,0.10), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .input::placeholder { color: var(--text-dim); }
+
+  /* ── Select ─────────────────────────────────────────────── */
+  .select {
+    @apply input appearance-none cursor-pointer pr-8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238892A4' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  /* ── Label ──────────────────────────────────────────────── */
+  .label {
+    @apply block font-mono uppercase tracking-wider mb-1.5;
+    color: var(--text-sec);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+  }
+
+  /* ── Metric value ───────────────────────────────────────── */
+  .metric-value {
+    @apply font-mono text-2xl font-medium;
+    color: var(--text-pri);
+    letter-spacing: -0.02em;
+  }
+  .metric-label {
+    @apply text-xs font-mono uppercase tracking-wider;
+    color: var(--text-sec);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Positive / Negative delta ──────────────────────────── */
+  .delta-pos { color: var(--signal); }
+  .delta-neg { color: var(--warn);   }
+  .delta-neu { color: var(--text-sec); }
+
+  /* ── Table ──────────────────────────────────────────────── */
+  .data-table { @apply w-full text-sm border-collapse; }
+  .data-table th {
+    @apply px-4 py-3 text-left font-mono text-xs uppercase tracking-wider;
+    color: var(--text-dim);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    white-space: nowrap;
+    letter-spacing: 0.06em;
+    background: rgba(10,14,26,0.60);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .data-table td {
+    @apply px-4 py-2.5 font-mono;
+    color: var(--text-pri);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    font-size: 13px;
+  }
+  .data-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+  /* ── Divider ────────────────────────────────────────────── */
+  .divider { border-top: 1px solid var(--border); }
+
+  /* ── Stat row ───────────────────────────────────────────── */
+  .stat-row {
+    @apply flex items-center justify-between py-2;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .stat-row:last-child { border-bottom: none; }
+}
+
+@layer utilities {
+  .text-signal  { color: var(--signal);   }
+  .text-warn    { color: var(--warn);     }
+  .text-sky     { color: var(--sky);      }
+  .text-gold    { color: var(--gold);     }
+  .text-pri     { color: var(--text-pri); }
+  .text-sec     { color: var(--text-sec); }
+  .text-dim     { color: var(--text-dim); }
+  .bg-ink       { background: var(--ink);     }
+  .bg-ink-50    { background: var(--ink-50);  }
+  .bg-ink-100   { background: var(--ink-100); }
+  .border-ink   { border-color: var(--border); }
+  .font-display { font-family: 'DM Mono', monospace; }
+}
