@@ -21,6 +21,7 @@ The app answers three practical questions retailers face every week:
 1. **How is demand trending?** Historical actuals vs forecast vs price-optimised projection
 2. **How price-sensitive are my products?** Demand curves, elasticity coefficients, revenue/profit trade-offs at any price point
 3. **What prices maximise revenue or profit?** Scenario-based optimisation with real business constraints (competitor bounds, margin floors, max price change limits)
+4. **How do my prices compare to competitors?** Live competitor price monitoring across Target, Kroger and others — Competitive Pricing Index (CPI), category-level breakdowns, and promo tracking updated daily
 
 ---
 
