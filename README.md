@@ -69,6 +69,14 @@ The app answers three practical questions retailers face every week:
 
 ---
 
+### Competitor Intelligence
+*Live competitor price monitoring — CPI trend, category price gaps, promo tracking, and per-SKU records across Target, Kroger and others. Data refreshed daily via an automated Cloud Run pipeline.*
+
+<img width="1440" height="808" alt="Screenshot 2026-05-27 at 2 42 45 PM" src="https://github.com/user-attachments/assets/de8083da-377a-4131-afe0-0e0460070c89" />
+
+
+---
+
 ## Architecture
 
 ```
@@ -84,12 +92,21 @@ The app answers three practical questions retailers face every week:
 │    • /summary/*      TY/LY/NY performance               │
 │    • /demand/*       Elasticity & simulation            │
 │    • /optimise/*     Scenarios & constraints            │
+│    • /competitor/*   Live competitor price data         │
 └──────────────────────┬──────────────────────────────────┘
                        │
 ┌──────────────────────▼──────────────────────────────────┐
 │               Google Cloud Storage                       │
 │         Pre-computed parquet files (~350 MB)             │
 │  Forecasts · Elasticity · Opt results · Master dataset  │
+│  Competitor prices  (daily partitions, auto-refreshed)  │
+└─────────────────────────────────────────────────────────┘
+                       ▲
+                       │ writes daily partitions
+┌──────────────────────┴──────────────────────────────────┐
+│          Competitor Intel Pipeline (Cloud Run Job)       │
+│   Fetches Target / Kroger pricing via retailer APIs     │
+│   Triggered daily at 06:00 UTC via Cloud Scheduler      │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -185,6 +202,7 @@ Built on the [Walmart M5 Forecasting](https://www.kaggle.com/competitions/m5-for
 | Demand Lab | ✅ Live |
 | Optimisation Studio | ✅ Live |
 | Performance Summary | ✅ Live |
+| Competitor Intelligence | ✅ Live |
 | Pipeline Engine APIs (re-run forecasting/optimisation) | 🔄 Phase 2 |
 | AI Agent (natural language querying) | 🔄 Phase 3 |
 
